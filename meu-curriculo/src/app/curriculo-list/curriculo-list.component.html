@@ -1,0 +1,10 @@
+<!-- src/app/curriculo-list/curriculo-list.component.html -->
+<h2>Currículos Salvos</h2>
+<div *ngFor="let curriculo of curriculos" class="curriculo-card">
+    <h3>{{ curriculo.nome }}</h3>
+    <p><strong>Email:</strong> {{ curriculo.email }}</p>
+    <p><strong>Telefone:</strong> {{ curriculo.telefone }}</p>
+    <p><strong>Formação:</strong> {{ curriculo.instituicao }} ({{ curriculo.inicioFormacao }} - {{ curriculo.fimFormacao
+        }})</p>
+    <hr />
+</div>

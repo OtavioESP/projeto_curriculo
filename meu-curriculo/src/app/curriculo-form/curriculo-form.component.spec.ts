@@ -1,23 +1,29 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { AppComponent } from '../app.component';
 
-import { CurriculoFormComponent } from './curriculo-form.component';
-
-describe('CurriculoFormComponent', () => {
-  let component: CurriculoFormComponent;
-  let fixture: ComponentFixture<CurriculoFormComponent>;
-
+describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CurriculoFormComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(CurriculoFormComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+      imports: [AppComponent],
+    }).compileComponents();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+  it(`should have the 'meu-curriculo' title`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('meu-curriculo');
+  });
+
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, meu-curriculo');
   });
 });

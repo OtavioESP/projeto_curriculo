@@ -1,45 +1,70 @@
-<div class="form-container">
+<form class="form-container" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <!-- Dados Pessoais -->
+    <section>
+        <h2>Dados Pessoais</h2>
+        <label>Nome Completo</label>
+        <input type="text" name="nome" placeholder="Seu nome completo" required />
+
+        <label>Endereço</label>
+        <input type="text" name="endereco" placeholder="Rua, número, bairro, cidade - UF" required />
+
+        <label>Telefone</label>
+        <input type="tel" name="telefone" pattern="\\([0-9]{2}\\) [0-9]{5}-[0-9]{4}" placeholder="(11) 90000-0000"
+            required />
+
+        <label>E-mail</label>
+        <input type="email" name="email" required />
+    </section>
+
     <!-- Formação Acadêmica -->
     <section>
         <h2>Formação Acadêmica</h2>
         <label>Instituição</label>
-        <input type="text" placeholder="Nome da instituição" />
+        <input type="text" name="instituicao" required />
 
         <label>Período</label>
-        <input type="text" placeholder="Ex: 2020 - 2024" />
+        <div class="date-range">
+            <input type="date" name="inicioFormacao" required />
+            <span>até</span>
+            <input type="date" name="fimFormacao" required />
+        </div>
     </section>
 
     <!-- Experiência Profissional -->
     <section>
         <h2>Experiência Profissional</h2>
         <label>Cargo</label>
-        <input type="text" />
+        <input type="text" name="cargo" />
 
         <label>Empresa</label>
-        <input type="text" />
+        <input type="text" name="empresa" />
 
         <label>Período</label>
-        <input type="text" placeholder="Ex: Jan/2021 - Dez/2022" />
+        <div class="date-range">
+            <input type="date" name="inicioExperiencia" />
+            <span>até</span>
+            <input type="date" name="fimExperiencia">
+        </div>
 
         <label>Descrição</label>
-        <textarea></textarea>
+        <textarea name="descricao"></textarea>
     </section>
 
     <!-- Habilidades -->
     <section>
         <h2>Habilidades</h2>
         <label>Habilidades</label>
-        <input type="text" placeholder="Ex: Java, Angular, SQL..." />
+        <input type="text" name="habilidades" placeholder="Ex: Java, Angular, SQL..." />
     </section>
 
     <!-- Idiomas -->
     <section>
         <h2>Idiomas</h2>
         <label>Idioma</label>
-        <input type="text" />
+        <input type="text" name="idioma" />
 
         <label>Nível</label>
-        <select>
+        <select name="nivelIdioma">
             <option value="basico">Básico</option>
             <option value="intermediario">Intermediário</option>
             <option value="avancado">Avançado</option>
@@ -51,28 +76,31 @@
     <section>
         <h2>Certificados (opcional)</h2>
         <label>Certificação</label>
-        <input type="text" />
+        <input type="text" name="tituloCertificado" />
 
         <label>Instituição</label>
-        <input type="text" />
+        <input type="text" name="instituicaoCertificado" />
 
         <label>Ano</label>
-        <input type="number" min="1900" max="2099" />
+        <input type="number" name="anoCertificado" />
     </section>
 
     <!-- Projetos -->
     <section>
         <h2>Projetos (opcional)</h2>
         <label>Nome do Projeto</label>
-        <input type="text" />
+        <input type="text" name="nomeProjeto" />
 
         <label>Descrição</label>
-        <textarea></textarea>
+        <textarea name="descricaoProjeto"></textarea>
 
         <label>Link</label>
-        <input type="url" />
+        <input type="url" name="linkProjeto" />
     </section>
 
     <!-- Botão -->
-    <button class="save-button">Salvar Currículo</button>
-</div>
+    <form class="form-container" #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <!-- seus inputs já estão bons -->
+        <button type="submit" class="save-button">Salvar Currículo</button>
+    </form>
+</form>
